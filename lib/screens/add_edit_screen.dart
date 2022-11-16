@@ -22,6 +22,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
     return Form(
       key: formKey,
       child: Scaffold(
+        
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.red,
@@ -57,7 +58,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
 
-                        Network.checkInternet();
+                        Network.checkInternet(context);
                         Future.delayed(Duration(seconds: 3)).then((value) {
                           if(Network.isConnected){
                             if (AddEditScreen.id == 0) {

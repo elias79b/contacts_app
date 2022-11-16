@@ -8,14 +8,15 @@ import 'dart:convert' as convert;
 class Network {
   ////check net
   static bool isConnected = false;
-  static Future<bool> checkInternet() async{
+  static Future<bool> checkInternet(BuildContext context) async{
     Connectivity().onConnectivityChanged.listen((status) {
       if(status == ConnectivityResult.mobile || status == ConnectivityResult.wifi){
         isConnected == true;
       }else{
-
+        showInternetError(context);
+        isConnected == false;
       }
-      isConnected == false;
+
     });
     return isConnected;
   }

@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    Network.checkInternet();
+    Network.checkInternet(context);
     Future.delayed(Duration(seconds: 3)).then((value) {
       if (Network.isConnected) {
         Network.getDate().then((value) async {
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             MaterialPageRoute(
                                 builder: (context) => AddEditScreen()))
                         .then((value) async {
-                      Network.checkInternet();
+                      Network.checkInternet(context);
                       Future.delayed(Duration(seconds: 3)).then((value) {
                         if (Network.isConnected) {
                           Network.getDate().then((value) async {
